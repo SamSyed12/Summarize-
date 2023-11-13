@@ -17,6 +17,10 @@
 		761B21C62AFD543C0038FDC5 /* SummarizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21C52AFD543C0038FDC5 /* SummarizeTests.swift */; };
 		761B21D02AFD543C0038FDC5 /* SummarizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21CF2AFD543C0038FDC5 /* SummarizeUITests.swift */; };
 		761B21D22AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21D12AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift */; };
+		EDF967E82B02939B00C1F0E4 /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */; };
+		EDF967EA2B0293CC00C1F0E4 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */; };
+		EDF967EC2B02941800C1F0E4 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967EB2B02941800C1F0E4 /* MainTabBarViewController.swift */; };
+		EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,11 @@
 		761B21CB2AFD543C0038FDC5 /* SummarizeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SummarizeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		761B21CF2AFD543C0038FDC5 /* SummarizeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeUITests.swift; sourceTree = "<group>"; };
 		761B21D12AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EDF967E62B026D8D00C1F0E4 /* Key.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Key.xcconfig; sourceTree = "<group>"; };
+		EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesViewController.swift; sourceTree = "<group>"; };
+		EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		EDF967EB2B02941800C1F0E4 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +113,11 @@
 				761B21AB2AFD543A0038FDC5 /* AppDelegate.swift */,
 				761B21AD2AFD543A0038FDC5 /* SceneDelegate.swift */,
 				761B21AF2AFD543A0038FDC5 /* ViewController.swift */,
+				EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */,
+				EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */,
+				EDF967EB2B02941800C1F0E4 /* MainTabBarViewController.swift */,
+				EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */,
+				EDF967E62B026D8D00C1F0E4 /* Key.xcconfig */,
 				761B21B12AFD543A0038FDC5 /* Main.storyboard */,
 				761B21B72AFD543C0038FDC5 /* Assets.xcassets */,
 				761B21B92AFD543C0038FDC5 /* LaunchScreen.storyboard */,
@@ -261,7 +275,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF967EA2B0293CC00C1F0E4 /* CollectionsViewController.swift in Sources */,
+				EDF967E82B02939B00C1F0E4 /* AllNotesViewController.swift in Sources */,
 				761B21B02AFD543A0038FDC5 /* ViewController.swift in Sources */,
+				EDF967EC2B02941800C1F0E4 /* MainTabBarViewController.swift in Sources */,
+				EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */,
 				761B21AC2AFD543A0038FDC5 /* AppDelegate.swift in Sources */,
 				761B21AE2AFD543A0038FDC5 /* SceneDelegate.swift in Sources */,
 				761B21B62AFD543A0038FDC5 /* Summarize.xcdatamodeld in Sources */,

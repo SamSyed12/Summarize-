@@ -37,7 +37,7 @@ class AllNotesViewController: UIViewController {
         collectionsTabButton.setTitleColor(UIColor.black, for: .normal)
         collectionsTabButton.setTitleColor(UIColor.black, for: .highlighted)
         collectionsTabButton.titleLabel?.font = buttonFont
-        collectionsTabButton.frame = CGRect(x: 210, y: 95, width: 200, height: 20)
+        collectionsTabButton.frame = CGRect(x: 200, y: 95, width: 200, height: 20)
         collectionsTabButton.addTarget(self, action: #selector(collectionsTabButtonTapped), for: .touchUpInside)
         mainView.addSubview(collectionsTabButton)
         }

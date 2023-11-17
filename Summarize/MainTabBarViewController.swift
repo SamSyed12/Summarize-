@@ -10,21 +10,24 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let firstVC = AllNotesViewController()
-        firstVC.tabBarItem = UITabBarItem(title: "First", image: UIImage(systemName: "1.circle"), tag: 0)
-
-        let secondVC = CollectionsViewController()
-        secondVC.tabBarItem = UITabBarItem(title: "Second", image: UIImage(systemName: "2.circle"), tag: 1)
-
+        // Get the reference to the storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        self.viewControllers = [firstVC, secondVC]
-
-        setupRecordButton()
-        setupAudioSession()
-  
+        // Instantiate AllNotesViewController from the storyboard
+        if let firstVC = storyboard.instantiateViewController(withIdentifier: "AllNotesViewController") as? AllNotesViewController {
+            firstVC.tabBarItem = UITabBarItem(title: "First", image: UIImage(systemName: "1.circle"), tag: 0)
+            
+            let secondVC = CollectionsViewController()
+            secondVC.tabBarItem = UITabBarItem(title: "Second", image: UIImage(systemName: "2.circle"), tag: 1)
+            
+            self.viewControllers = [firstVC, secondVC]
+            
+            setupRecordButton()
+            setupAudioSession()
+        }
     }
+        
 
-    
     private func setupRecordButton() {
         recordButton = UIButton(type: .custom)
         recordButton.setImage(UIImage(systemName: "mic.fill"), for: .normal)

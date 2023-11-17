@@ -13,9 +13,47 @@ class AllNotesViewController: UIViewController {
     
     func setUpNotesCollectionsTab(){
         
-        // Add buttons to move between Notes and Collections and implement functionality.
+        // create font for button
+        guard let buttonFont = UIFont(name: "Lato-Medium", size: 24) else {
+            fatalError("""
+                Failed to load the "Lato-Light" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+        }
+        
+        let noteTabButton = UIButton(type: .system)
+        noteTabButton.setTitle("Notes", for: .normal)
+        noteTabButton.setTitleColor(UIColor.black, for: .normal)
+        noteTabButton.setTitleColor(UIColor.black, for: .highlighted)
+        noteTabButton.frame = CGRect(x: 20, y: 95, width: 100, height: 20)
+        noteTabButton.addTarget(self, action: #selector(noteTabButtonTapped), for: .touchUpInside)
+        noteTabButton.titleLabel?.font = buttonFont
+        mainView.addSubview(noteTabButton)
+        
+        // Create the second button
+        let collectionsTabButton = UIButton(type: .system)
+        collectionsTabButton.setTitle("Collections", for: .normal)
+        collectionsTabButton.setTitleColor(UIColor.black, for: .normal)
+        collectionsTabButton.setTitleColor(UIColor.black, for: .highlighted)
+        collectionsTabButton.titleLabel?.font = buttonFont
+        collectionsTabButton.frame = CGRect(x: 210, y: 95, width: 200, height: 20)
+        collectionsTabButton.addTarget(self, action: #selector(collectionsTabButtonTapped), for: .touchUpInside)
+        mainView.addSubview(collectionsTabButton)
+        }
+    
+    // Action that occurs when noteTabButton is tapped
+    @objc func noteTabButtonTapped() {
+        print("Note button tapped!")
+        // Add your code here to handle the tap on Button 1
     }
     
+    // Action that occurs when collectionsTabButton is pressed.
+    @objc func collectionsTabButtonTapped() {
+        print("Collections button tapped!")
+        // Add your code here to handle the tap on Button 2
+    }
+
     func setUpNotesLayout() {
         let numberOfRectangles = 5 // will be based on the number of notes held in core data
         let rectangleWidth: CGFloat = 340

@@ -6,24 +6,22 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
     var recordButton: UIButton!
     var isRecording = false
     var audioRecorder: AVAudioRecorder!
+    var transcriptionService = TranscriptionService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let firstVC = AllNotesViewController()
-        firstVC.tabBarItem = UITabBarItem(title: "First", image: UIImage(systemName: "1.circle"), tag: 0)
+        firstVC.tabBarItem = UITabBarItem(title: "All Notes", image: UIImage(systemName: "1.circle"), tag: 0)
 
         let secondVC = CollectionsViewController()
-        secondVC.tabBarItem = UITabBarItem(title: "Second", image: UIImage(systemName: "2.circle"), tag: 1)
+        secondVC.tabBarItem = UITabBarItem(title: "Collections", image: UIImage(systemName: "2.circle"), tag: 1)
 
-        
         self.viewControllers = [firstVC, secondVC]
 
         setupRecordButton()
         setupAudioSession()
-  
     }
-
     
     private func setupRecordButton() {
         recordButton = UIButton(type: .custom)
@@ -34,7 +32,6 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
         recordButton.layer.masksToBounds = true
         recordButton.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
         
-        // Use Auto Layout to place the record button
         recordButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(recordButton)
         
@@ -54,7 +51,7 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
             try audioSession.setCategory(.playAndRecord, mode: .default)
             try audioSession.setActive(true)
         } catch {
-            // Handle the error of setting up the audio session.
+            print("Failed to set up audio session: \(error)")
         }
     }
     
@@ -88,21 +85,32 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
     }
     
     func finishRecording(success: Bool) {
-        audioRecorder.stop()
-        audioRecorder = nil
-        isRecording = false
-        recordButton.setImage(UIImage(systemName: "mic.fill"), for: .normal)
+            audioRecorder.stop()
+            audioRecorder = nil
+            isRecording = false
+            recordButton.setImage(UIImage(systemName: "mic.fill"), for: .normal)
 
-        if success {
-            let recordingStoppedVC = TranscriptionPageViewController()
-            recordingStoppedVC.modalPresentationStyle = .fullScreen
-            present(recordingStoppedVC, animated: true, completion: nil)
-        } else {
-            // Handle recording failure
+            if success {
+                let audioFileURL = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+                transcribeAudio(audioFileURL: audioFileURL)
+            } else {
+                print("Recording was not successful.")
+            }
         }
-    }
 
-    
+        private func transcribeAudio(audioFileURL: URL) {
+            transcriptionService.transcribeAudio(fileURL: audioFileURL) { [weak self] transcription in
+                DispatchQueue.main.async {
+                    if let transcription = transcription {
+                        print("Transcription: \(transcription)")
+                        // Here you can handle the transcription, e.g., show it in a new view controller
+                    } else {
+                        print("Failed to transcribe audio")
+                    }
+                }
+            }
+        }
+
     func getDocumentsDirectory() -> URL {
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
@@ -114,6 +122,4 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
             finishRecording(success: false)
         }
     }
-    
-
 }

@@ -7,23 +7,28 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
     var isRecording = false
     var audioRecorder: AVAudioRecorder!
     var transcriptionService = TranscriptionService()
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let firstVC = AllNotesViewController()
-        firstVC.tabBarItem = UITabBarItem(title: "All Notes", image: UIImage(systemName: "1.circle"), tag: 0)
-
-        let secondVC = CollectionsViewController()
-        secondVC.tabBarItem = UITabBarItem(title: "Collections", image: UIImage(systemName: "2.circle"), tag: 1)
-
-        self.viewControllers = [firstVC, secondVC]
-
-        setupRecordButton()
-        setupAudioSession()
-    }
+            super.viewDidLoad()
+            
+            // Get the reference to the storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            // Instantiate AllNotesViewController from the storyboard
+            if let firstVC = storyboard.instantiateViewController(withIdentifier: "AllNotesViewController") as? AllNotesViewController {
+                firstVC.tabBarItem = UITabBarItem(title: "First", image: UIImage(systemName: "1.circle"), tag: 0)
+                
+                let secondVC = CollectionsViewController()
+                secondVC.tabBarItem = UITabBarItem(title: "Second", image: UIImage(systemName: "2.circle"), tag: 1)
+                
+                self.viewControllers = [firstVC, secondVC]
+                
+                setupRecordButton()
+                setupAudioSession()
+            }
+        }
 
     private func setupRecordButton() {
         recordButton = UIButton(type: .custom)

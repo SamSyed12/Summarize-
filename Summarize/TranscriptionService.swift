@@ -2,7 +2,7 @@ import Foundation
 
 class TranscriptionService {
     // Replace with your actual API key
-    private let apiKey = ""
+    private let apiKey = "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"
 
     func transcribeAudio(fileURL: URL, completion: @escaping (String?) -> Void) {
         let url = URL(string: "https://api.openai.com/v1/audio/transcriptions")!

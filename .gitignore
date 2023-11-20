@@ -2,6 +2,7 @@
 xcuserdata/
 
 Summarize.xcodeproj/project.xcworkspace/xcuserdata/oliverzink.xcuserdatad/UserInterfaceState.xcuserstate
+Summarize/Key.xcconfig
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint

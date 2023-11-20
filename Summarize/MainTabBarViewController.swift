@@ -7,10 +7,12 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
     var isRecording = false
     var audioRecorder: AVAudioRecorder!
     var transcriptionService = TranscriptionService()
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let firstVC = AllNotesViewController()
         firstVC.tabBarItem = UITabBarItem(title: "All Notes", image: UIImage(systemName: "1.circle"), tag: 0)
 
@@ -22,7 +24,7 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
         setupRecordButton()
         setupAudioSession()
     }
-    
+
     private func setupRecordButton() {
         recordButton = UIButton(type: .custom)
         recordButton.setImage(UIImage(systemName: "mic.fill"), for: .normal)

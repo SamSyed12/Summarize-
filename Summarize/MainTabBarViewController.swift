@@ -100,6 +100,9 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
             if success {
                 let audioFileURL = getDocumentsDirectory().appendingPathComponent("recording.m4a")
                 transcribeAudio(audioFileURL: audioFileURL)
+                let recordingStoppedVC = TranscriptionPageViewController()
+                recordingStoppedVC.modalPresentationStyle = .fullScreen
+                present(recordingStoppedVC, animated: true, completion: nil)
             } else {
                 print("Recording was not successful.")
             }

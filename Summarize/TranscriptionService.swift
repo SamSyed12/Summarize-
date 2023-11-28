@@ -34,21 +34,31 @@ class TranscriptionService {
         request.httpBody = body
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Error during HTTP request: \(error?.localizedDescription ?? "Unknown error")")
-                completion(nil)
-                return
-            }
+                    guard let data = data, error == nil else {
+                        print("Error during HTTP request: \(error?.localizedDescription ?? "Unknown error")")
+                        completion(nil)
+                        return
+                    }
 
-            // Assuming the response is a JSON string
-            let transcription = String(data: data, encoding: .utf8)
-            completion(transcription)
-        }
-        task.resume()
+                    do {
+                        let transcriptionResult = try JSONDecoder().decode(TranscriptionResponse.self, from: data)
+                        completion(transcriptionResult.text)
+                    } catch {
+                        print("Error decoding transcription response: \(error)")
+                        completion(nil)
+                    }
+                }
+                task.resume()
     }
 
     private func contentType(for filename: String) -> String {
         // You can extend this function to handle different file types
         return "audio/mpeg"
     }
+    
+
+}
+
+struct TranscriptionResponse: Codable {
+    let text: String
 }

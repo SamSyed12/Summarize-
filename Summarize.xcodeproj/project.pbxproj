@@ -16,8 +16,6 @@
 		761B21C62AFD543C0038FDC5 /* SummarizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21C52AFD543C0038FDC5 /* SummarizeTests.swift */; };
 		761B21D02AFD543C0038FDC5 /* SummarizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21CF2AFD543C0038FDC5 /* SummarizeUITests.swift */; };
 		761B21D22AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21D12AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift */; };
-		ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */; };
-		ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740F2B06938600E73F20 /* TranscriptionService.swift */; };
 		76D2F1052B02B5660091445D /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1012B02B4C70091445D /* Lato-Light.ttf */; };
 		76D2F1062B02B56E0091445D /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1002B02B4C70091445D /* Lato-Medium.ttf */; };
 		76D2F1072B02B5700091445D /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1022B02B4C70091445D /* Lato-Regular.ttf */; };
@@ -33,6 +31,9 @@
 		76D2F1112B02B5D30091445D /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1042B02B4C70091445D /* Lato-Semibold.ttf */; };
 		76D2F1122B02B5D60091445D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1032B02B4C70091445D /* Lato-Thin.ttf */; };
 		76D2F1132B02B5D60091445D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1032B02B4C70091445D /* Lato-Thin.ttf */; };
+		ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */; };
+		ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740F2B06938600E73F20 /* TranscriptionService.swift */; };
+		ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED940C532B1512750086CC8F /* OpenAICompletionService.swift */; };
 		EDF967E82B02939B00C1F0E4 /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */; };
 		EDF967EA2B0293CC00C1F0E4 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */; };
 		EDF967EC2B02941800C1F0E4 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967EB2B02941800C1F0E4 /* MainTabBarViewController.swift */; };
@@ -71,13 +72,14 @@
 		761B21CB2AFD543C0038FDC5 /* SummarizeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SummarizeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		761B21CF2AFD543C0038FDC5 /* SummarizeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeUITests.swift; sourceTree = "<group>"; };
 		761B21D12AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
-		ED3A740F2B06938600E73F20 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
 		76D2F1002B02B4C70091445D /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		76D2F1012B02B4C70091445D /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		76D2F1022B02B4C70091445D /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		76D2F1032B02B4C70091445D /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		76D2F1042B02B4C70091445D /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
+		ED3A740F2B06938600E73F20 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
+		ED940C532B1512750086CC8F /* OpenAICompletionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionService.swift; sourceTree = "<group>"; };
 		EDF967E62B026D8D00C1F0E4 /* Key.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Key.xcconfig; sourceTree = "<group>"; };
 		EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesViewController.swift; sourceTree = "<group>"; };
 		EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				761B21AB2AFD543A0038FDC5 /* AppDelegate.swift */,
 				761B21AD2AFD543A0038FDC5 /* SceneDelegate.swift */,
 				EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */,
+				ED940C532B1512750086CC8F /* OpenAICompletionService.swift */,
 				EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */,
 				EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */,
 				ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */,
@@ -334,6 +337,7 @@
 				ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */,
 				EDF967E82B02939B00C1F0E4 /* AllNotesViewController.swift in Sources */,
 				EDF967EC2B02941800C1F0E4 /* MainTabBarViewController.swift in Sources */,
+				ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */,
 				EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */,
 				761B21AC2AFD543A0038FDC5 /* AppDelegate.swift in Sources */,
 				761B21AE2AFD543A0038FDC5 /* SceneDelegate.swift in Sources */,

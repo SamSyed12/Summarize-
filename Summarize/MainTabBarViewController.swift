@@ -113,6 +113,8 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
                 DispatchQueue.main.async {
                     if let transcription = transcription {
                         print("Transcription: \(transcription)")
+                        self?.updateTranscriptionViewController(with: transcription)
+
                         // Here you can handle the transcription, e.g., show it in a new view controller
                     } else {
                         print("Failed to transcribe audio")
@@ -132,4 +134,11 @@ class MainTabBarController: UITabBarController, AVAudioRecorderDelegate {
             finishRecording(success: false)
         }
     }
+    
+    private func updateTranscriptionViewController(with transcription: String) {
+        if let transcriptionVC = presentedViewController as? TranscriptionPageViewController {
+            transcriptionVC.updateTranscription(text: transcription)
+        }
+    }
+
 }

@@ -12,7 +12,6 @@
 		761B21B32AFD543A0038FDC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 761B21B12AFD543A0038FDC5 /* Main.storyboard */; };
 		761B21B62AFD543A0038FDC5 /* Summarize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 761B21B42AFD543A0038FDC5 /* Summarize.xcdatamodeld */; };
 		761B21B82AFD543C0038FDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 761B21B72AFD543C0038FDC5 /* Assets.xcassets */; };
-		761B21BB2AFD543C0038FDC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 761B21B92AFD543C0038FDC5 /* LaunchScreen.storyboard */; };
 		761B21C62AFD543C0038FDC5 /* SummarizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21C52AFD543C0038FDC5 /* SummarizeTests.swift */; };
 		761B21D02AFD543C0038FDC5 /* SummarizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21CF2AFD543C0038FDC5 /* SummarizeUITests.swift */; };
 		761B21D22AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21D12AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift */; };
@@ -31,12 +30,14 @@
 		76D2F1112B02B5D30091445D /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1042B02B4C70091445D /* Lato-Semibold.ttf */; };
 		76D2F1122B02B5D60091445D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1032B02B4C70091445D /* Lato-Thin.ttf */; };
 		76D2F1132B02B5D60091445D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1032B02B4C70091445D /* Lato-Thin.ttf */; };
+		76DD93792B1574FB00AA821F /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93782B1574FB00AA821F /* AllNotesViewController.swift */; };
+		76DD937B2B15751500AA821F /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD937A2B15751500AA821F /* CollectionsViewController.swift */; };
+		76DD93802B1576C000AA821F /* CustomRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD937F2B1576C000AA821F /* CustomRectangleView.swift */; };
+		76DD93822B157C2A00AA821F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76DD93812B157C2A00AA821F /* Launch Screen.storyboard */; };
+		76DD93842B157F4A00AA821F /* AppLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DD93832B157F4A00AA821F /* AppLogo.png */; };
 		ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */; };
 		ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740F2B06938600E73F20 /* TranscriptionService.swift */; };
 		ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED940C532B1512750086CC8F /* OpenAICompletionService.swift */; };
-		EDF967E82B02939B00C1F0E4 /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */; };
-		EDF967EA2B0293CC00C1F0E4 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */; };
-		EDF967EC2B02941800C1F0E4 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967EB2B02941800C1F0E4 /* MainTabBarViewController.swift */; };
 		EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */; };
 		EDF967F02B029A7C00C1F0E4 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +66,6 @@
 		761B21B22AFD543A0038FDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		761B21B52AFD543A0038FDC5 /* Summarize.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Summarize.xcdatamodel; sourceTree = "<group>"; };
 		761B21B72AFD543C0038FDC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		761B21BA2AFD543C0038FDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		761B21BC2AFD543C0038FDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		761B21C12AFD543C0038FDC5 /* SummarizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SummarizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		761B21C52AFD543C0038FDC5 /* SummarizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeTests.swift; sourceTree = "<group>"; };
@@ -77,13 +77,14 @@
 		76D2F1022B02B4C70091445D /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		76D2F1032B02B4C70091445D /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		76D2F1042B02B4C70091445D /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		76DD93782B1574FB00AA821F /* AllNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllNotesViewController.swift; path = ../../Summarize/Summarize/AllNotesViewController.swift; sourceTree = "<group>"; };
+		76DD937A2B15751500AA821F /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionsViewController.swift; path = ../../Summarize/Summarize/CollectionsViewController.swift; sourceTree = "<group>"; };
+		76DD937F2B1576C000AA821F /* CustomRectangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRectangleView.swift; path = ../../Summarize/Summarize/CustomRectangleView.swift; sourceTree = "<group>"; };
+		76DD93812B157C2A00AA821F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		76DD93832B157F4A00AA821F /* AppLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppLogo.png; sourceTree = "<group>"; };
 		ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		ED3A740F2B06938600E73F20 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
 		ED940C532B1512750086CC8F /* OpenAICompletionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionService.swift; sourceTree = "<group>"; };
-		EDF967E62B026D8D00C1F0E4 /* Key.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Key.xcconfig; sourceTree = "<group>"; };
-		EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesViewController.swift; sourceTree = "<group>"; };
-		EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
-		EDF967EB2B02941800C1F0E4 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionPageViewController.swift; sourceTree = "<group>"; };
 		EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,20 +139,20 @@
 			children = (
 				761B21AB2AFD543A0038FDC5 /* AppDelegate.swift */,
 				761B21AD2AFD543A0038FDC5 /* SceneDelegate.swift */,
-				EDF967E72B02939B00C1F0E4 /* AllNotesViewController.swift */,
+				76DD937F2B1576C000AA821F /* CustomRectangleView.swift */,
+				76DD93782B1574FB00AA821F /* AllNotesViewController.swift */,
 				ED940C532B1512750086CC8F /* OpenAICompletionService.swift */,
-				EDF967E92B0293CC00C1F0E4 /* CollectionsViewController.swift */,
+				76DD937A2B15751500AA821F /* CollectionsViewController.swift */,
 				EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */,
 				ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */,
-				EDF967EB2B02941800C1F0E4 /* MainTabBarViewController.swift */,
 				ED3A740F2B06938600E73F20 /* TranscriptionService.swift */,
 				EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */,
-				EDF967E62B026D8D00C1F0E4 /* Key.xcconfig */,
 				761B21B12AFD543A0038FDC5 /* Main.storyboard */,
 				761B21B72AFD543C0038FDC5 /* Assets.xcassets */,
-				761B21B92AFD543C0038FDC5 /* LaunchScreen.storyboard */,
 				761B21BC2AFD543C0038FDC5 /* Info.plist */,
+				76DD93812B157C2A00AA821F /* Launch Screen.storyboard */,
 				761B21B42AFD543A0038FDC5 /* Summarize.xcdatamodeld */,
+				76DD93832B157F4A00AA821F /* AppLogo.png */,
 				76D2F1142B02B5F10091445D /* fonts */,
 			);
 			path = Summarize;
@@ -293,8 +294,9 @@
 				76D2F1082B02B5740091445D /* Lato-Semibold.ttf in Resources */,
 				76D2F1092B02B5760091445D /* Lato-Thin.ttf in Resources */,
 				76D2F1062B02B56E0091445D /* Lato-Medium.ttf in Resources */,
+				76DD93822B157C2A00AA821F /* Launch Screen.storyboard in Resources */,
+				76DD93842B157F4A00AA821F /* AppLogo.png in Resources */,
 				76D2F1072B02B5700091445D /* Lato-Regular.ttf in Resources */,
-				761B21BB2AFD543C0038FDC5 /* LaunchScreen.storyboard in Resources */,
 				761B21B82AFD543C0038FDC5 /* Assets.xcassets in Resources */,
 				761B21B32AFD543A0038FDC5 /* Main.storyboard in Resources */,
 				76D2F1052B02B5660091445D /* Lato-Light.ttf in Resources */,
@@ -332,11 +334,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DD93802B1576C000AA821F /* CustomRectangleView.swift in Sources */,
+				76DD937B2B15751500AA821F /* CollectionsViewController.swift in Sources */,
+				76DD93792B1574FB00AA821F /* AllNotesViewController.swift in Sources */,
 				ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */,
-				EDF967EA2B0293CC00C1F0E4 /* CollectionsViewController.swift in Sources */,
 				ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */,
-				EDF967E82B02939B00C1F0E4 /* AllNotesViewController.swift in Sources */,
-				EDF967EC2B02941800C1F0E4 /* MainTabBarViewController.swift in Sources */,
 				ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */,
 				EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */,
 				761B21AC2AFD543A0038FDC5 /* AppDelegate.swift in Sources */,
@@ -385,14 +387,6 @@
 				761B21B22AFD543A0038FDC5 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		761B21B92AFD543C0038FDC5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				761B21BA2AFD543C0038FDC5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -522,8 +516,9 @@
 				DEVELOPMENT_TEAM = J5356ZUHYV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Summarize/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the microphone for recording audio";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -550,8 +545,9 @@
 				DEVELOPMENT_TEAM = J5356ZUHYV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Summarize/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the microphone for recording audio";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

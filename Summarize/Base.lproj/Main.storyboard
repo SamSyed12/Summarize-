@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Tab Bar Controller-->
+        <!--All Notes View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainTabBarController" customModule="Summarize" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AllNotesVIewController" id="BYZ-38-t0r" customClass="AllNotesViewController" customModule="Summarize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="4" y="-230"/>
         </scene>
-        <!--All Notes View Controller-->
+        <!--Collections View Controller-->
         <scene sceneID="pBM-Sq-nwW">
             <objects>
-                <viewController storyboardIdentifier="AllNotesViewController" id="iHG-1f-xTH" customClass="AllNotesViewController" customModule="Summarize" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CollectionsViewController" id="iHG-1f-xTH" customClass="CollectionsViewController" customModule="Summarize" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ra1-e7-z9t" userLabel="mainView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

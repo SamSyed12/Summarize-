@@ -35,6 +35,8 @@
 		76DD93802B1576C000AA821F /* CustomRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD937F2B1576C000AA821F /* CustomRectangleView.swift */; };
 		76DD93822B157C2A00AA821F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76DD93812B157C2A00AA821F /* Launch Screen.storyboard */; };
 		76DD93842B157F4A00AA821F /* AppLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DD93832B157F4A00AA821F /* AppLogo.png */; };
+		76DD93862B1664DD00AA821F /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */; };
+		76DD93882B17D30900AA821F /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93872B17D30900AA821F /* CollectionTableViewCell.swift */; };
 		ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */; };
 		ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740F2B06938600E73F20 /* TranscriptionService.swift */; };
 		ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED940C532B1512750086CC8F /* OpenAICompletionService.swift */; };
@@ -82,6 +84,8 @@
 		76DD937F2B1576C000AA821F /* CustomRectangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRectangleView.swift; path = ../../Summarize/Summarize/CustomRectangleView.swift; sourceTree = "<group>"; };
 		76DD93812B157C2A00AA821F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		76DD93832B157F4A00AA821F /* AppLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppLogo.png; sourceTree = "<group>"; };
+		76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		76DD93872B17D30900AA821F /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		ED3A740F2B06938600E73F20 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
 		ED940C532B1512750086CC8F /* OpenAICompletionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionService.swift; sourceTree = "<group>"; };
@@ -141,12 +145,14 @@
 				761B21AD2AFD543A0038FDC5 /* SceneDelegate.swift */,
 				76DD937F2B1576C000AA821F /* CustomRectangleView.swift */,
 				76DD93782B1574FB00AA821F /* AllNotesViewController.swift */,
-				ED940C532B1512750086CC8F /* OpenAICompletionService.swift */,
 				76DD937A2B15751500AA821F /* CollectionsViewController.swift */,
+				ED940C532B1512750086CC8F /* OpenAICompletionService.swift */,
 				EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */,
 				ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */,
 				ED3A740F2B06938600E73F20 /* TranscriptionService.swift */,
 				EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */,
+				76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */,
+				76DD93872B17D30900AA821F /* CollectionTableViewCell.swift */,
 				761B21B12AFD543A0038FDC5 /* Main.storyboard */,
 				761B21B72AFD543C0038FDC5 /* Assets.xcassets */,
 				761B21BC2AFD543C0038FDC5 /* Info.plist */,
@@ -345,6 +351,8 @@
 				761B21AE2AFD543A0038FDC5 /* SceneDelegate.swift in Sources */,
 				761B21B62AFD543A0038FDC5 /* Summarize.xcdatamodeld in Sources */,
 				EDF967F02B029A7C00C1F0E4 /* SummaryViewController.swift in Sources */,
+				76DD93882B17D30900AA821F /* CollectionTableViewCell.swift in Sources */,
+				76DD93862B1664DD00AA821F /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

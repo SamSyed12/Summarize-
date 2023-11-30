@@ -105,30 +105,28 @@ class TranscriptionPageViewController: UIViewController {
 
     // When summarize button is pressed
     @objc func summarizeButtonTapped() {
-        
-        let transcriptionText = transcriptionTextView.text ?? ""
-        showOverlay()
-        
+        guard let transcriptionText = transcriptionTextView.text, !transcriptionText.isEmpty else {
+            print("No transcription text available")
+            return
+        }
+
         completionService.getSummary(for: transcriptionText) { [weak self] summary in
-            guard let strongSelf = self else {
-                return
-            }
-            
             DispatchQueue.main.async {
                 if let summary = summary {
-                    print("Summary: \(summary)")
-                    
-                    
                     let summaryVC = SummaryViewController()
-                    summaryVC.modalTransitionStyle = .crossDissolve
-                    strongSelf.present(summaryVC, animated: false, completion: nil)
-
+                    summaryVC.transcriptionText = transcriptionText // Pass the transcription text
+                    summaryVC.modalPresentationStyle = .fullScreen
+                    self?.present(summaryVC, animated: true) {
+                        summaryVC.updateSummary(with: summary)
+                    }
                 } else {
                     print("Failed to get summary")
                 }
             }
         }
     }
+
+
     
     func showOverlay() {
         // Create a semi-transparent overlay view

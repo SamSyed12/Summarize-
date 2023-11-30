@@ -30,9 +30,6 @@
 		76D2F1112B02B5D30091445D /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1042B02B4C70091445D /* Lato-Semibold.ttf */; };
 		76D2F1122B02B5D60091445D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1032B02B4C70091445D /* Lato-Thin.ttf */; };
 		76D2F1132B02B5D60091445D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1032B02B4C70091445D /* Lato-Thin.ttf */; };
-		76DD93792B1574FB00AA821F /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93782B1574FB00AA821F /* AllNotesViewController.swift */; };
-		76DD937B2B15751500AA821F /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD937A2B15751500AA821F /* CollectionsViewController.swift */; };
-		76DD93802B1576C000AA821F /* CustomRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD937F2B1576C000AA821F /* CustomRectangleView.swift */; };
 		76DD93822B157C2A00AA821F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76DD93812B157C2A00AA821F /* Launch Screen.storyboard */; };
 		76DD93842B157F4A00AA821F /* AppLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DD93832B157F4A00AA821F /* AppLogo.png */; };
 		76DD93862B1664DD00AA821F /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */; };
@@ -40,6 +37,9 @@
 		ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */; };
 		ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740F2B06938600E73F20 /* TranscriptionService.swift */; };
 		ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED940C532B1512750086CC8F /* OpenAICompletionService.swift */; };
+		EDEE0E302B1662110080F27D /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E2F2B1662110080F27D /* AllNotesViewController.swift */; };
+		EDEE0E322B1662180080F27D /* CustomRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E312B1662180080F27D /* CustomRectangleView.swift */; };
+		EDEE0E342B16621E0080F27D /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E332B16621E0080F27D /* CollectionsViewController.swift */; };
 		EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */; };
 		EDF967F02B029A7C00C1F0E4 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -79,9 +79,6 @@
 		76D2F1022B02B4C70091445D /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		76D2F1032B02B4C70091445D /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		76D2F1042B02B4C70091445D /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
-		76DD93782B1574FB00AA821F /* AllNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllNotesViewController.swift; path = ../../Summarize/Summarize/AllNotesViewController.swift; sourceTree = "<group>"; };
-		76DD937A2B15751500AA821F /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionsViewController.swift; path = ../../Summarize/Summarize/CollectionsViewController.swift; sourceTree = "<group>"; };
-		76DD937F2B1576C000AA821F /* CustomRectangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRectangleView.swift; path = ../../Summarize/Summarize/CustomRectangleView.swift; sourceTree = "<group>"; };
 		76DD93812B157C2A00AA821F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		76DD93832B157F4A00AA821F /* AppLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppLogo.png; sourceTree = "<group>"; };
 		76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +86,9 @@
 		ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		ED3A740F2B06938600E73F20 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
 		ED940C532B1512750086CC8F /* OpenAICompletionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionService.swift; sourceTree = "<group>"; };
+		EDEE0E2F2B1662110080F27D /* AllNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllNotesViewController.swift; sourceTree = "<group>"; };
+		EDEE0E312B1662180080F27D /* CustomRectangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRectangleView.swift; sourceTree = "<group>"; };
+		EDEE0E332B16621E0080F27D /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
 		EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionPageViewController.swift; sourceTree = "<group>"; };
 		EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,8 +148,11 @@
 				76DD937A2B15751500AA821F /* CollectionsViewController.swift */,
 				ED940C532B1512750086CC8F /* OpenAICompletionService.swift */,
 				EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */,
+				EDEE0E312B1662180080F27D /* CustomRectangleView.swift */,
 				ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */,
+				EDEE0E332B16621E0080F27D /* CollectionsViewController.swift */,
 				ED3A740F2B06938600E73F20 /* TranscriptionService.swift */,
+				EDEE0E2F2B1662110080F27D /* AllNotesViewController.swift */,
 				EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */,
 				76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */,
 				76DD93872B17D30900AA821F /* CollectionTableViewCell.swift */,
@@ -340,15 +343,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76DD93802B1576C000AA821F /* CustomRectangleView.swift in Sources */,
-				76DD937B2B15751500AA821F /* CollectionsViewController.swift in Sources */,
-				76DD93792B1574FB00AA821F /* AllNotesViewController.swift in Sources */,
+				EDEE0E302B1662110080F27D /* AllNotesViewController.swift in Sources */,
 				ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */,
 				ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */,
 				ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */,
 				EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */,
 				761B21AC2AFD543A0038FDC5 /* AppDelegate.swift in Sources */,
 				761B21AE2AFD543A0038FDC5 /* SceneDelegate.swift in Sources */,
+				EDEE0E322B1662180080F27D /* CustomRectangleView.swift in Sources */,
+				EDEE0E342B16621E0080F27D /* CollectionsViewController.swift in Sources */,
 				761B21B62AFD543A0038FDC5 /* Summarize.xcdatamodeld in Sources */,
 				EDF967F02B029A7C00C1F0E4 /* SummaryViewController.swift in Sources */,
 				76DD93882B17D30900AA821F /* CollectionTableViewCell.swift in Sources */,

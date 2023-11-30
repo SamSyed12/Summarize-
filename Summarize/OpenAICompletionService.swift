@@ -19,7 +19,7 @@ class OpenAICompletionService {
         let body: [String: Any] = [
             "model": "gpt-3.5-turbo",
             "messages": [
-                ["role": "system", "content": "Summarize the following text with 3-5 sentences."],
+                ["role": "system", "content": "Write a summary of less than 200 words of the following text from the perspective of the person talking. Do not write anything besides the summary. Write the summary as a collection of important points in the text. Use your judgement to limit the size of the summary, if it is a long piece of text, only note the most relevant points. I dont want you to say 'summary' or anything besides the summary itself. Again, write it from the perspective of the person who wrote the text"],
                 ["role": "user", "content": text]
             ]
         ]
@@ -49,6 +49,7 @@ class OpenAICompletionService {
                            let message = firstChoice["message"] as? [String: Any],
                            let summary = message["content"] as? String {
                             completion(summary)
+                        
                         } else {
                             print("Invalid response format")
                             completion(nil)

@@ -52,18 +52,28 @@ class TranscriptionPageViewController: UIViewController {
 
     // When the "Summarize" button is pressed
     @objc func summarizeButtonTapped() {
-        let transcriptionText = transcriptionLabel.text ?? ""
-        completionService.getSummary(for: transcriptionText) { summary in
+        guard let transcriptionText = transcriptionLabel.text, !transcriptionText.isEmpty else {
+            print("No transcription text available")
+            return
+        }
+
+        completionService.getSummary(for: transcriptionText) { [weak self] summary in
             DispatchQueue.main.async {
                 if let summary = summary {
-                    print("Summary: \(summary)")
-                    // Handle the summary (e.g., display it in the UI)
+                    let summaryVC = SummaryViewController()
+                    summaryVC.transcriptionText = transcriptionText // Pass the transcription text
+                    summaryVC.modalPresentationStyle = .fullScreen
+                    self?.present(summaryVC, animated: true) {
+                        summaryVC.updateSummary(with: summary)
+                    }
                 } else {
                     print("Failed to get summary")
                 }
             }
         }
     }
+
+
     
     func updateTranscription(text: String) {
             transcriptionLabel.text = text

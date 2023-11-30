@@ -2,6 +2,10 @@ import UIKit
 
 class SummaryViewController: UIViewController {
 
+    var summaryLabel = UILabel()
+    var transcriptionText: String?
+    var completionService = OpenAICompletionService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
@@ -31,6 +35,17 @@ class SummaryViewController: UIViewController {
             regenerateButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             regenerateButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
+        
+        summaryLabel.numberOfLines = 0
+                summaryLabel.textAlignment = .center
+                summaryLabel.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(summaryLabel)
+
+                NSLayoutConstraint.activate([
+                    summaryLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+                    summaryLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+                    summaryLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+                ])
     }
 
     @objc func exitButtonTapped() {
@@ -41,6 +56,22 @@ class SummaryViewController: UIViewController {
     }
 
     @objc func regenerateButtonTapped() {
-        // Placeholder for future implementation
+            guard let transcriptionText = transcriptionText else { return }
+            
+            completionService.getSummary(for: transcriptionText) { [weak self] summary in
+                DispatchQueue.main.async {
+                    if let summary = summary {
+                        self?.updateSummary(with: summary)
+                    } else {
+                        print("Failed to regenerate summary")
+                    }
+                }
+            }
+        }
+    
+    func updateSummary(with text: String) {
+        print(text)
+        print("heyo")
+        summaryLabel.text = text
     }
 }

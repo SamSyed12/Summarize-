@@ -1,33 +1,74 @@
 import UIKit
 import AVFAudio
 
-class CollectionsViewController: UIViewController, AVAudioRecorderDelegate {
+class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var recordButton: UIButton!
     var isRecording = false
     var audioRecorder: AVAudioRecorder!
     var transcriptionService = TranscriptionService()
+    var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        setUpCollectionsLayout()
+        setUpTableView()
+        registerTableViewCells()
         setUpNotesCollectionsTab()
         setUpAudio()
     }
     
+    private func registerTableViewCells() {
+           tableView.register(CollectionsTableViewCell.self, forCellReuseIdentifier: "CollectionsCell")
+       }
+    
+
+    private func setUpTableView() {
+        tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorColor = UIColor.clear
+        view.addSubview(tableView)
+
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 122.5),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:16), // Adjust the leading constant
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-16), // Adjust the trailing constant
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return 10 // Adjust the number of rows based on your data
+        }
+
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionsCell", for: indexPath) as! CollectionsTableViewCell
+            // Configure the cell with your data
+            return cell
+        }
+
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            // Handle the selection of a row
+            print("Row \(indexPath.row) selected")
+        }
+
+
     func setUpNotesCollectionsTab(){
         
         // create font for button
         guard let buttonFont = UIFont(name: "Lato-Medium", size: 24) else {
             fatalError("""
                 Failed to load the "Lato-Light" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
                 """
             )
         }
         
         let customRect2 = CustomRectangleView(x: 240, y: 120, width: 120, height: 3.5)
         view.addSubview(customRect2)
+
         
         let noteTabButton = UIButton(type: .system)
         noteTabButton.setTitle("All Notes", for: .normal)
@@ -47,7 +88,11 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate {
         collectionsTabButton.frame = CGRect(x: 200, y: 95, width: 200, height: 20)
         collectionsTabButton.addTarget(self, action: #selector(collectionsTabButtonTapped), for: .touchUpInside)
         view.addSubview(collectionsTabButton)
-    }
+        
+        view.bringSubviewToFront(customRect2)
+        view.bringSubviewToFront(noteTabButton)
+        view.bringSubviewToFront(collectionsTabButton)
+        }
     
     // Action that occurs when noteTabButton is tapped
     @objc func noteTabButtonTapped() {
@@ -56,64 +101,13 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate {
         notesVC.modalPresentationStyle = .fullScreen
         notesVC.modalTransitionStyle = .crossDissolve
         present(notesVC, animated: false, completion: nil)
-        
+
     }
     
     // Action that occurs when collectionsTabButton is pressed.
     @objc func collectionsTabButtonTapped() {
         print("Collections button tapped!")
-        
-    }
 
-    func setUpCollectionsLayout() {
-        let numberOfRectangles = 5 // will be based on the number of collections held in core data
-        let rectangleWidth: CGFloat = 340
-        let rectangleHeight: CGFloat = 125
-        let verticalSpacing: CGFloat = 15
-        let initialYPosition: CGFloat = 130
-        
-        for i in 0..<numberOfRectangles {
-            let CollectionsDisplay = UIView()
-            CollectionsDisplay.backgroundColor = UIColor.yellow
-            CollectionsDisplay.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(CollectionsDisplay)
-            
-            // Ensure that the rectangles do not exceed the bounds of mainView
-            CollectionsDisplay.clipsToBounds = true
-            
-            // Center the rectangles horizontally within mainView
-            CollectionsDisplay.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            
-            // Set the top constraint based on initialYPosition and vertical spacing
-            let topConstraintConstant = initialYPosition + CGFloat(i) * (rectangleHeight + verticalSpacing)
-            CollectionsDisplay.topAnchor.constraint(equalTo: view.topAnchor, constant: topConstraintConstant).isActive = true
-            
-            CollectionsDisplay.widthAnchor.constraint(equalToConstant: rectangleWidth).isActive = true
-            CollectionsDisplay.heightAnchor.constraint(equalToConstant: rectangleHeight).isActive = true
-            CollectionsDisplay.layer.cornerRadius = 20
-            
-            guard let collectionsLabelFont = UIFont(name: "Lato-Medium", size: 32) else {
-                fatalError("""
-                    Failed to load the "Lato-Light" font.
-                    """
-                )
-            }
-            
-            let collectionsLabel = UILabel()
-            collectionsLabel.text = "Collection"
-            collectionsLabel.font = collectionsLabelFont
-            collectionsLabel.translatesAutoresizingMaskIntoConstraints = false
-            collectionsLabel.textAlignment = .center
-            
-            CollectionsDisplay.addSubview(collectionsLabel)
-            
-            NSLayoutConstraint.activate([
-                collectionsLabel.centerXAnchor.constraint(equalTo: CollectionsDisplay.centerXAnchor),
-                collectionsLabel.centerYAnchor.constraint(equalTo: CollectionsDisplay.centerYAnchor),
-                collectionsLabel.widthAnchor.constraint(equalTo: CollectionsDisplay.widthAnchor, constant: -20), // Optional: Adjust the constant based on your requirements
-                collectionsLabel.heightAnchor.constraint(equalToConstant: 50),
-            ])
-        }
     }
     
     private func setUpAudio(){
@@ -233,4 +227,7 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
 }
+
+
+
 

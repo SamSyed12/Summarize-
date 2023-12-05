@@ -115,6 +115,7 @@ class TranscriptionPageViewController: UIViewController {
                 if let summary = summary {
                     let summaryVC = SummaryViewController()
                     summaryVC.transcriptionText = transcriptionText // Pass the transcription text
+                    summaryVC.titleText = self?.titleTextField.text // Pass the title text here
                     summaryVC.modalPresentationStyle = .fullScreen
                     self?.present(summaryVC, animated: true) {
                         summaryVC.updateSummary(with: summary)

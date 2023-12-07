@@ -1,13 +1,21 @@
 import UIKit
 import AVFAudio
 
-class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITableViewDelegate, UITableViewDataSource {
+class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITableViewDelegate, UITableViewDataSource {
     
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var writeButton: UIButton!
+    var recordView: UIView!
     var recordButton: UIButton!
     var isRecording = false
     var audioRecorder: AVAudioRecorder!
     var transcriptionService = TranscriptionService()
     var tableView: UITableView!
+    var searchBar: UISearchBar!
+    var transcription: String!
+    
+//    private var allNotes = [Note]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,11 +23,11 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
         setUpTableView()
         registerTableViewCells()
         setUpNotesCollectionsTab()
-        setUpAudio()
+        setUpAudioAndText()
     }
     
     private func registerTableViewCells() {
-           tableView.register(CollectionsTableViewCell.self, forCellReuseIdentifier: "CollectionsCell")
+           tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: "NoteCell")
        }
     
 
@@ -33,26 +41,28 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 122.5),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:16), // Adjust the leading constant
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-16), // Adjust the trailing constant
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:10),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-10),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 10 // Adjust the number of rows based on your data
+        return 10 // allNotes.count // Adjust the number of rows based on your data
         }
 
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionsCell", for: indexPath) as! CollectionsTableViewCell
-            // Configure the cell with your data
-            return cell
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let note = allNotes[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! NoteTableViewCell
+//        cell.noteLabel.text = //note.title
+//        cell.noteDescriptionLabel.text = //note.noteDescription
+        return cell
+    }
 
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            // Handle the selection of a row
-            print("Row \(indexPath.row) selected")
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Handle the selection of a row
+        print("Row \(indexPath.row) selected")
+    }
 
 
     func setUpNotesCollectionsTab(){
@@ -66,9 +76,9 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
             )
         }
         
-        let customRect2 = CustomRectangleView(x: 240, y: 120, width: 120, height: 3.5)
-        view.addSubview(customRect2)
-
+        let customRect1 = CustomRectangleView(x: 30, y: 120, width: 120, height: 3.5)
+        view.addSubview(customRect1)
+        
         
         let noteTabButton = UIButton(type: .system)
         noteTabButton.setTitle("All Notes", for: .normal)
@@ -85,55 +95,127 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
         collectionsTabButton.setTitleColor(UIColor.black, for: .normal)
         collectionsTabButton.setTitleColor(UIColor.black, for: .highlighted)
         collectionsTabButton.titleLabel?.font = buttonFont
-        collectionsTabButton.frame = CGRect(x: 200, y: 95, width: 200, height: 20)
+        collectionsTabButton.frame = CGRect(x: 195, y: 95, width: 200, height: 20)
         collectionsTabButton.addTarget(self, action: #selector(collectionsTabButtonTapped), for: .touchUpInside)
         view.addSubview(collectionsTabButton)
         
-        view.bringSubviewToFront(customRect2)
+        view.bringSubviewToFront(customRect1)
         view.bringSubviewToFront(noteTabButton)
         view.bringSubviewToFront(collectionsTabButton)
+        
         }
     
     // Action that occurs when noteTabButton is tapped
     @objc func noteTabButtonTapped() {
         print("Note button tapped!")
-        let notesVC = AllNotesViewController()
-        notesVC.modalPresentationStyle = .fullScreen
-        notesVC.modalTransitionStyle = .crossDissolve
-        present(notesVC, animated: false, completion: nil)
-
     }
     
     // Action that occurs when collectionsTabButton is pressed.
     @objc func collectionsTabButtonTapped() {
         print("Collections button tapped!")
+        let collectionsVC = CollectionsViewController()
+        collectionsVC.modalPresentationStyle = .fullScreen
+        collectionsVC.modalTransitionStyle = .crossDissolve
+        present(collectionsVC, animated: false, completion: nil)
 
     }
     
-    private func setUpAudio(){
-        setupRecordButton()
+    private func setUpAudioAndText(){
+        setUpBottomTab()
         setupAudioSession()
     }
-    
-    private func setupRecordButton() {
-        recordButton = UIButton(type: .custom)
+
+    private func setUpBottomTab() {
+        
+        let ellipseView = UIView()
+        ellipseView.backgroundColor = UIColor.black
+        ellipseView.layer.cornerRadius = 5.0
+        ellipseView.alpha = 0.70
+        view.addSubview(ellipseView)
+
+        ellipseView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            ellipseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            ellipseView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ellipseView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            ellipseView.heightAnchor.constraint(equalToConstant: 90)
+        ])
+        
+        recordView = UIView()
+        recordView.backgroundColor = .clear
+        recordView.layer.borderWidth = 4.0
+        recordView.layer.borderColor = UIColor.black.cgColor
+        recordView.layer.cornerRadius = 19.0
+        recordView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(recordView)
+        
+        NSLayoutConstraint.activate([
+            recordView.centerXAnchor.constraint(equalTo: ellipseView.centerXAnchor, constant: -100),
+            recordView.centerYAnchor.constraint(equalTo: ellipseView.centerYAnchor),
+            recordView.widthAnchor.constraint(equalToConstant: 54),
+            recordView.heightAnchor.constraint(equalToConstant: 54)
+        ])
+
+        // Inner button with white border
+        recordButton = UIButton(type: .system)
         recordButton.setImage(UIImage(systemName: "mic.fill"), for: .normal)
         recordButton.tintColor = .white
         recordButton.backgroundColor = .red
-        recordButton.layer.cornerRadius = 32
+        recordButton.layer.cornerRadius = 16.0
         recordButton.layer.masksToBounds = true
         recordButton.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
+        recordButton.layer.borderWidth = 2.0  // Set the width of the inner border
+        recordButton.layer.borderColor = UIColor.white.cgColor  // Set the color of the inner border
         
         recordButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(recordButton)
         
         NSLayoutConstraint.activate([
-            recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            recordButton.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 754),
-            recordButton.widthAnchor.constraint(equalToConstant: 64),
-            recordButton.heightAnchor.constraint(equalToConstant: 64)
+            recordButton.centerXAnchor.constraint(equalTo: ellipseView.centerXAnchor, constant: -100),
+            recordButton.centerYAnchor.constraint(equalTo: ellipseView.centerYAnchor),
+            recordButton.widthAnchor.constraint(equalToConstant: 50),
+            recordButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
+        let writeView = UIView()
+        writeView.backgroundColor = .clear
+        writeView.layer.borderWidth = 4.0
+        writeView.layer.borderColor = UIColor.black.cgColor
+        writeView.layer.cornerRadius = 19.0
+        writeView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(writeView)
+
+        NSLayoutConstraint.activate([
+            writeView.centerXAnchor.constraint(equalTo: ellipseView.centerXAnchor, constant: 100),
+            writeView.centerYAnchor.constraint(equalTo: ellipseView.centerYAnchor),
+            writeView.widthAnchor.constraint(equalToConstant: 54),
+            writeView.heightAnchor.constraint(equalToConstant: 54)
+        ])
+
+        writeButton = UIButton(type: .custom)
+        writeButton.setImage(UIImage(systemName: "pencil"), for: .normal)
+        writeButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 30), forImageIn: .normal)
+        writeButton.tintColor = .white
+        writeButton.backgroundColor = .red
+        writeButton.layer.cornerRadius = 16.0
+        writeButton.layer.borderWidth = 2.0
+        writeButton.layer.borderColor = UIColor.white.cgColor
+        writeButton.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
+
+        writeButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(writeButton)
+
+        NSLayoutConstraint.activate([
+            writeButton.centerXAnchor.constraint(equalTo: ellipseView.centerXAnchor, constant: 100),
+            writeButton.centerYAnchor.constraint(equalTo: ellipseView.centerYAnchor),
+            writeButton.widthAnchor.constraint(equalToConstant: 50),
+            writeButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        view.bringSubviewToFront(writeView)
+        view.bringSubviewToFront(recordView)
+        view.bringSubviewToFront(writeButton)
         view.bringSubviewToFront(recordButton)
     }
     
@@ -153,6 +235,12 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
         } else {
             startRecording()
         }
+    }
+    
+    @objc func writeButtonTapped() {
+        let recordingStoppedVC = TranscriptionPageViewController()
+        recordingStoppedVC.modalPresentationStyle = .fullScreen
+        present(recordingStoppedVC, animated: true, completion: nil)
     }
     
     func startRecording() {
@@ -199,6 +287,7 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
                     if let transcription = transcription {
                         print("Transcription: \(transcription)")
                         self?.updateTranscriptionViewController(with: transcription)
+                        
 
                         // Here you can handle the transcription, e.g., show it in a new view controller
                     } else {
@@ -225,9 +314,31 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
             transcriptionVC.updateTranscription(text: transcription)
         }
     }
-
+    
+//    func getAllNotes(){
+//        do {
+//            allNotes = try context.fetch(Note.fetchRequest())
+//
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+//        catch {
+//            //error
+//        }
+//    }
+//
+//    func deleteNote(note: Note){
+//        context.delete(note)
+//
+//        do{
+//            try context.save()
+//        }
+//        catch {
+//            //error
+//        }
+//    }
+    
 }
-
-
 
 

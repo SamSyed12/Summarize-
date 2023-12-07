@@ -12,18 +12,6 @@ class TranscriptionPageViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        // Screen Label
-        ScreenLabel.text = "Your Transcription"
-        ScreenLabel.textAlignment = .center
-        ScreenLabel.translatesAutoresizingMaskIntoConstraints = false
-        ScreenLabel.font = UIFont(name: "Lato-Semibold", size: 28)
-        view.addSubview(ScreenLabel)
-        
-        NSLayoutConstraint.activate([
-            ScreenLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 22),
-            ScreenLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        ])
-        
         // Customizing Back Button
         backButton.backgroundColor = .yellow
         let chevronLeftImage = UIImage(systemName: "chevron.left")
@@ -64,6 +52,17 @@ class TranscriptionPageViewController: UIViewController {
             
         ])
         
+        // Screen Label
+        ScreenLabel.text = "Your Text"
+        ScreenLabel.textAlignment = .center
+        ScreenLabel.translatesAutoresizingMaskIntoConstraints = false
+        ScreenLabel.font = UIFont(name: "Lato-Semibold", size: 28)
+        view.addSubview(ScreenLabel)
+        
+        NSLayoutConstraint.activate([
+            ScreenLabel.centerYAnchor.constraint(equalTo: summarizeButton.centerYAnchor),
+            ScreenLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
         
         titleTextField.placeholder = "Add Title"
         titleTextField.font = UIFont(name: "Lato-Semibold", size: 32)
@@ -75,7 +74,7 @@ class TranscriptionPageViewController: UIViewController {
         
         // Placing TitleTextField
         NSLayoutConstraint.activate([
-            titleTextField.topAnchor.constraint(equalTo: summarizeButton.bottomAnchor, constant: 20),
+            titleTextField.topAnchor.constraint(equalTo: summarizeButton.bottomAnchor, constant: 10),
             titleTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             titleTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             titleTextField.heightAnchor.constraint(equalToConstant: 50)
@@ -106,6 +105,8 @@ class TranscriptionPageViewController: UIViewController {
     // When summarize button is pressed
     @objc func summarizeButtonTapped() {
         showOverlay()
+        print("Summarize button tapped!")
+        
         guard let transcriptionText = transcriptionTextView.text, !transcriptionText.isEmpty else {
             print("No transcription text available")
             return
@@ -116,6 +117,7 @@ class TranscriptionPageViewController: UIViewController {
                 if let summary = summary {
                     let summaryVC = SummaryViewController()
                     summaryVC.transcriptionText = transcriptionText // Pass the transcription text
+                    summaryVC.titleText = self?.titleTextField.text // Pass the title text here
                     summaryVC.modalPresentationStyle = .fullScreen
                     self?.present(summaryVC, animated: true) {
                         summaryVC.updateSummary(with: summary)
@@ -143,17 +145,6 @@ class TranscriptionPageViewController: UIViewController {
             overlayView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             overlayView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-//        let configurationView = configurationView() // Replace with the actual view you want to present
-//            configurationView.translatesAutoresizingMaskIntoConstraints = false
-//            view.addSubview(configurationView)
-//
-//            // Add constraints to center the custom view within the view controller
-//            NSLayoutConstraint.activate([
-//                configurationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//                configurationView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-//            ])
-//        }
     }
     
     func updateTranscription(text: String) {

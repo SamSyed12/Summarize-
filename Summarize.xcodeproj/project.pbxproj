@@ -10,11 +10,11 @@
 		761B21AC2AFD543A0038FDC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21AB2AFD543A0038FDC5 /* AppDelegate.swift */; };
 		761B21AE2AFD543A0038FDC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21AD2AFD543A0038FDC5 /* SceneDelegate.swift */; };
 		761B21B32AFD543A0038FDC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 761B21B12AFD543A0038FDC5 /* Main.storyboard */; };
-		761B21B62AFD543A0038FDC5 /* Summarize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 761B21B42AFD543A0038FDC5 /* Summarize.xcdatamodeld */; };
 		761B21B82AFD543C0038FDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 761B21B72AFD543C0038FDC5 /* Assets.xcassets */; };
 		761B21C62AFD543C0038FDC5 /* SummarizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21C52AFD543C0038FDC5 /* SummarizeTests.swift */; };
 		761B21D02AFD543C0038FDC5 /* SummarizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21CF2AFD543C0038FDC5 /* SummarizeUITests.swift */; };
 		761B21D22AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B21D12AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift */; };
+		769D05432B223F54001BB7B0 /* Summarize.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 761B21B42AFD543A0038FDC5 /* Summarize.xcdatamodeld */; };
 		76D2F1052B02B5660091445D /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1012B02B4C70091445D /* Lato-Light.ttf */; };
 		76D2F1062B02B56E0091445D /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1002B02B4C70091445D /* Lato-Medium.ttf */; };
 		76D2F1072B02B5700091445D /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76D2F1022B02B4C70091445D /* Lato-Regular.ttf */; };
@@ -34,6 +34,7 @@
 		76DD93842B157F4A00AA821F /* AppLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76DD93832B157F4A00AA821F /* AppLogo.png */; };
 		76DD93862B1664DD00AA821F /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */; };
 		76DD93882B17D30900AA821F /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93872B17D30900AA821F /* CollectionTableViewCell.swift */; };
+		76DD93912B19039100AA821F /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93902B19039100AA821F /* ConfigurationView.swift */; };
 		ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */; };
 		ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740F2B06938600E73F20 /* TranscriptionService.swift */; };
 		ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED940C532B1512750086CC8F /* OpenAICompletionService.swift */; };
@@ -83,6 +84,7 @@
 		76DD93832B157F4A00AA821F /* AppLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppLogo.png; sourceTree = "<group>"; };
 		76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		76DD93872B17D30900AA821F /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
+		76DD93902B19039100AA821F /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		ED3A740F2B06938600E73F20 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
 		ED940C532B1512750086CC8F /* OpenAICompletionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionService.swift; sourceTree = "<group>"; };
@@ -141,21 +143,14 @@
 		761B21AA2AFD543A0038FDC5 /* Summarize */ = {
 			isa = PBXGroup;
 			children = (
+				769B34A02B2065A500C53E73 /* ViewControllers */,
+				769B34A12B2065F800C53E73 /* CustomViews */,
+				769B34A22B20660D00C53E73 /* customCells */,
 				761B21AB2AFD543A0038FDC5 /* AppDelegate.swift */,
 				761B21AD2AFD543A0038FDC5 /* SceneDelegate.swift */,
-				76DD937F2B1576C000AA821F /* CustomRectangleView.swift */,
-				76DD93782B1574FB00AA821F /* AllNotesViewController.swift */,
-				76DD937A2B15751500AA821F /* CollectionsViewController.swift */,
 				ED940C532B1512750086CC8F /* OpenAICompletionService.swift */,
-				EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */,
-				EDEE0E312B1662180080F27D /* CustomRectangleView.swift */,
 				ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */,
-				EDEE0E332B16621E0080F27D /* CollectionsViewController.swift */,
 				ED3A740F2B06938600E73F20 /* TranscriptionService.swift */,
-				EDEE0E2F2B1662110080F27D /* AllNotesViewController.swift */,
-				EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */,
-				76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */,
-				76DD93872B17D30900AA821F /* CollectionTableViewCell.swift */,
 				761B21B12AFD543A0038FDC5 /* Main.storyboard */,
 				761B21B72AFD543C0038FDC5 /* Assets.xcassets */,
 				761B21BC2AFD543C0038FDC5 /* Info.plist */,
@@ -182,6 +177,35 @@
 				761B21D12AFD543C0038FDC5 /* SummarizeUITestsLaunchTests.swift */,
 			);
 			path = SummarizeUITests;
+			sourceTree = "<group>";
+		};
+		769B34A02B2065A500C53E73 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */,
+				EDEE0E332B16621E0080F27D /* CollectionsViewController.swift */,
+				EDEE0E2F2B1662110080F27D /* AllNotesViewController.swift */,
+				EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		769B34A12B2065F800C53E73 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EDEE0E312B1662180080F27D /* CustomRectangleView.swift */,
+				76DD93902B19039100AA821F /* ConfigurationView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		769B34A22B20660D00C53E73 /* customCells */ = {
+			isa = PBXGroup;
+			children = (
+				76DD93872B17D30900AA821F /* CollectionTableViewCell.swift */,
+				76DD93852B1664DD00AA821F /* NoteTableViewCell.swift */,
+			);
+			path = customCells;
 			sourceTree = "<group>";
 		};
 		76D2F1142B02B5F10091445D /* fonts */ = {
@@ -344,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDEE0E302B1662110080F27D /* AllNotesViewController.swift in Sources */,
+				76DD93912B19039100AA821F /* ConfigurationView.swift in Sources */,
 				ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */,
 				ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */,
 				ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */,
@@ -352,8 +377,8 @@
 				761B21AE2AFD543A0038FDC5 /* SceneDelegate.swift in Sources */,
 				EDEE0E322B1662180080F27D /* CustomRectangleView.swift in Sources */,
 				EDEE0E342B16621E0080F27D /* CollectionsViewController.swift in Sources */,
-				761B21B62AFD543A0038FDC5 /* Summarize.xcdatamodeld in Sources */,
 				EDF967F02B029A7C00C1F0E4 /* SummaryViewController.swift in Sources */,
+				769D05432B223F54001BB7B0 /* Summarize.xcdatamodeld in Sources */,
 				76DD93882B17D30900AA821F /* CollectionTableViewCell.swift in Sources */,
 				76DD93862B1664DD00AA821F /* NoteTableViewCell.swift in Sources */,
 			);
@@ -524,7 +549,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J5356ZUHYV;
+				DEVELOPMENT_TEAM = Q2C294PM68;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Summarize/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the microphone for recording audio";
@@ -553,7 +578,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J5356ZUHYV;
+				DEVELOPMENT_TEAM = Q2C294PM68;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Summarize/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the microphone for recording audio";

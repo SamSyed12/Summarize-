@@ -14,13 +14,13 @@ class NoteTableViewCell: UITableViewCell {
         let view = UIView()
         view.backgroundColor = UIColor.yellow
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.clipsToBounds = true
+        view.clipsToBounds = false
         view.layer.cornerRadius = 20
         return view
     }()
     
     let noteLabel: UILabel = {
-        let label = UILabel()
+        var label = UILabel()
         label.text = "Note"
         label.font = UIFont(name: "Lato-Medium", size: 32)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +28,7 @@ class NoteTableViewCell: UITableViewCell {
     }()
     
     let noteDescriptionLabel: UILabel = {
-        let label = UILabel()
+        var label = UILabel()
         label.text = "Note description"
         label.font = UIFont(name: "Lato-Light", size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,11 +53,11 @@ class NoteTableViewCell: UITableViewCell {
             noteDisplay.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             noteDisplay.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             noteDisplay.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 7.5),
-            noteDisplay.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+//            noteDisplay.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            noteDisplay.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             noteDisplay.widthAnchor.constraint(equalToConstant: 340), // Adjust the width as needed
             noteDisplay.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7.5),
             noteDisplay.heightAnchor.constraint(equalToConstant: 129),
-            
             
             // Set constraints for noteLabel
             noteLabel.topAnchor.constraint(equalTo: noteDisplay.topAnchor, constant: 10),

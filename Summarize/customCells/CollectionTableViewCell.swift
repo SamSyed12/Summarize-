@@ -52,12 +52,7 @@ class CollectionsTableViewCell: UITableViewCell {
             
             // Set constraints for collectionsLabel
             collectionsLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            collectionsLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            collectionsLabel.topAnchor.constraint(equalTo: noteDisplay.topAnchor, constant: 10),
-//            collectionsLabel.leadingAnchor.constraint(equalTo: noteDisplay.leadingAnchor, constant: 10),
-//            collectionsLabel.trailingAnchor.constraint(equalTo: noteDisplay.trailingAnchor, constant: -10),
-//            collectionsLabel.heightAnchor.constraint(equalToConstant: 50),
-            
+            collectionsLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
     

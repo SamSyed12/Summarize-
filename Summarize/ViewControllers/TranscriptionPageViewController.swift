@@ -104,7 +104,7 @@ class TranscriptionPageViewController: UIViewController {
 
     // When summarize button is pressed
     @objc func summarizeButtonTapped() {
-        showOverlay()
+//        showOverlay()
         print("Summarize button tapped!")
         
         guard let transcriptionText = transcriptionTextView.text, !transcriptionText.isEmpty else {

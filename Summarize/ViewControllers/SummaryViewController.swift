@@ -14,6 +14,8 @@ class SummaryViewController: UIViewController {
     var completionService = OpenAICompletionService()
     var titleText: String?
     let activityIndicator = UIActivityIndicatorView(style: .large)
+    var onDismiss: (() -> Void)?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,31 +172,43 @@ class SummaryViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        onDismiss?()
+    }
 
     func updateSummary(with text: String) {
         summaryTextView.text = text
     }
     
     @objc func saveButtonTapped() {
-        // Dismiss the current view controller or navigate to the main screen
+        saveSummaryToCoreData()
+        NotificationCenter.default.post(name: NSNotification.Name("SummarySaved"), object: nil)
         view.window?.rootViewController?.dismiss(animated: false, completion: nil)
         
     }
     
-//    func createNewNote(title: String, noteDescription: String, summary: String){
-//        let newNote = Note(context: context)
-//        newNote.title = title
-//        newNote.noteDescription = noteDescription
-//        newNote.summary = summary
-//        newNote.createdAt = Date()
-//
-//        do {
-//            try context.save()
-//        }
-//        catch {
-//
-//        }
-//    }
+    private func saveSummaryToCoreData() {
+        guard let summaryText = summaryTextView.text, !summaryText.isEmpty,
+              let titleText = titleTextField.text, !titleText.isEmpty else {
+            print("Summary or title is empty. Not saving.")
+            return
+        }
 
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let newSummary = Summary(context: context)
+        newSummary.date = Date()
+        newSummary.text = summaryText
+        newSummary.title = titleText
+
+        do {
+            try context.save()
+            print("Summary saved successfully.")
+        } catch {
+            print("Failed to save summary: \(error)")
+        }
+    }
+    
 }
 

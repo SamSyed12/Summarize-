@@ -1,9 +1,13 @@
 import UIKit
+import CoreData
 import AVFAudio
 
 class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITableViewDelegate, UITableViewDataSource {
     
 //    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var summaries: [Summary] = []
+
     
     var writeButton: UIButton!
     var recordView: UIView!
@@ -24,6 +28,9 @@ class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITable
         registerTableViewCells()
         setUpNotesCollectionsTab()
         setUpAudioAndText()
+        fetchSummaries()
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name("SummarySaved"), object: nil)
+
     }
     
     private func registerTableViewCells() {
@@ -48,20 +55,44 @@ class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITable
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10 // allNotes.count // Adjust the number of rows based on your data
+        return summaries.count
         }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let note = allNotes[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! NoteTableViewCell
-//        cell.noteLabel.text = //note.title
-//        cell.noteDescriptionLabel.text = //note.noteDescription
-        return cell
+            let summary = summaries[indexPath.row]
+
+            cell.noteLabel.text = summary.title
+            let previewText = (summary.text ?? "").prefix(100) + "..." // Show the first 100 characters
+            cell.noteDescriptionLabel.text = String(previewText)
+
+            return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle the selection of a row
-        print("Row \(indexPath.row) selected")
+        let selectedSummary = summaries[indexPath.row]
+        let detailVC = SummaryDetailViewController()
+        detailVC.titleText = selectedSummary.title
+        detailVC.summary = selectedSummary
+        detailVC.transcriptionText = selectedSummary.text
+        detailVC.modalPresentationStyle = .fullScreen
+        detailVC.onDismiss = { [weak self] in
+            self?.fetchSummaries()  // Refresh the data
+        }
+        present(detailVC, animated: false, completion: nil)
+
+    }
+
+    func fetchSummaries() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request: NSFetchRequest<Summary> = Summary.fetchRequest()
+
+        do {
+            summaries = try context.fetch(request)
+            tableView.reloadData()
+        } catch {
+            print("Failed to fetch summaries: \(error)")
+        }
     }
 
 
@@ -262,6 +293,14 @@ class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITable
         } catch {
             finishRecording(success: false)
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func refreshData() {
+        fetchSummaries()
     }
     
     func finishRecording(success: Bool) {

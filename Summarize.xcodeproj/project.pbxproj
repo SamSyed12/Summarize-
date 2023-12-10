@@ -37,12 +37,15 @@
 		76DD93912B19039100AA821F /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD93902B19039100AA821F /* ConfigurationView.swift */; };
 		ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */; };
 		ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A740F2B06938600E73F20 /* TranscriptionService.swift */; };
+		ED4FE9F92B2636A600DA1C0B /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FE9F82B2636A600DA1C0B /* SummaryViewController.swift */; };
+		ED4FE9FB2B2636C000DA1C0B /* CustomRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FE9FA2B2636C000DA1C0B /* CustomRectangleView.swift */; };
+		ED4FE9FD2B26430500DA1C0B /* SummaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4FE9FC2B26430500DA1C0B /* SummaryDetailViewController.swift */; };
+		ED5DAEB02B1FA2AA005C8733 /* Summary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5DAEAE2B1FA2AA005C8733 /* Summary+CoreDataClass.swift */; };
+		ED5DAEB12B1FA2AA005C8733 /* Summary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5DAEAF2B1FA2AA005C8733 /* Summary+CoreDataProperties.swift */; };
 		ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED940C532B1512750086CC8F /* OpenAICompletionService.swift */; };
 		EDEE0E302B1662110080F27D /* AllNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E2F2B1662110080F27D /* AllNotesViewController.swift */; };
-		EDEE0E322B1662180080F27D /* CustomRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E312B1662180080F27D /* CustomRectangleView.swift */; };
 		EDEE0E342B16621E0080F27D /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEE0E332B16621E0080F27D /* CollectionsViewController.swift */; };
 		EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */; };
-		EDF967F02B029A7C00C1F0E4 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,12 +90,15 @@
 		76DD93902B19039100AA821F /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		ED3A740F2B06938600E73F20 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
+		ED4FE9F82B2636A600DA1C0B /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		ED4FE9FA2B2636C000DA1C0B /* CustomRectangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRectangleView.swift; sourceTree = "<group>"; };
+		ED4FE9FC2B26430500DA1C0B /* SummaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailViewController.swift; sourceTree = "<group>"; };
+		ED5DAEAE2B1FA2AA005C8733 /* Summary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Summary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ED5DAEAF2B1FA2AA005C8733 /* Summary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Summary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ED940C532B1512750086CC8F /* OpenAICompletionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionService.swift; sourceTree = "<group>"; };
 		EDEE0E2F2B1662110080F27D /* AllNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllNotesViewController.swift; sourceTree = "<group>"; };
-		EDEE0E312B1662180080F27D /* CustomRectangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRectangleView.swift; sourceTree = "<group>"; };
 		EDEE0E332B16621E0080F27D /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
 		EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionPageViewController.swift; sourceTree = "<group>"; };
-		EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,8 @@
 				761B21AB2AFD543A0038FDC5 /* AppDelegate.swift */,
 				761B21AD2AFD543A0038FDC5 /* SceneDelegate.swift */,
 				ED940C532B1512750086CC8F /* OpenAICompletionService.swift */,
+				ED5DAEAE2B1FA2AA005C8733 /* Summary+CoreDataClass.swift */,
+				ED5DAEAF2B1FA2AA005C8733 /* Summary+CoreDataProperties.swift */,
 				ED3A740D2B0692AC00E73F20 /* AudioRecorderManager.swift */,
 				ED3A740F2B06938600E73F20 /* TranscriptionService.swift */,
 				761B21B12AFD543A0038FDC5 /* Main.storyboard */,
@@ -182,9 +190,10 @@
 		769B34A02B2065A500C53E73 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EDF967EF2B029A7C00C1F0E4 /* SummaryViewController.swift */,
 				EDEE0E332B16621E0080F27D /* CollectionsViewController.swift */,
 				EDEE0E2F2B1662110080F27D /* AllNotesViewController.swift */,
+				ED4FE9FC2B26430500DA1C0B /* SummaryDetailViewController.swift */,
+				ED4FE9F82B2636A600DA1C0B /* SummaryViewController.swift */,
 				EDF967ED2B02946200C1F0E4 /* TranscriptionPageViewController.swift */,
 			);
 			path = ViewControllers;
@@ -193,7 +202,7 @@
 		769B34A12B2065F800C53E73 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				EDEE0E312B1662180080F27D /* CustomRectangleView.swift */,
+				ED4FE9FA2B2636C000DA1C0B /* CustomRectangleView.swift */,
 				76DD93902B19039100AA821F /* ConfigurationView.swift */,
 			);
 			path = CustomViews;
@@ -370,17 +379,20 @@
 				EDEE0E302B1662110080F27D /* AllNotesViewController.swift in Sources */,
 				76DD93912B19039100AA821F /* ConfigurationView.swift in Sources */,
 				ED3A740E2B0692AC00E73F20 /* AudioRecorderManager.swift in Sources */,
+				ED4FE9F92B2636A600DA1C0B /* SummaryViewController.swift in Sources */,
 				ED3A74102B06938600E73F20 /* TranscriptionService.swift in Sources */,
 				ED940C542B1512750086CC8F /* OpenAICompletionService.swift in Sources */,
 				EDF967EE2B02946200C1F0E4 /* TranscriptionPageViewController.swift in Sources */,
 				761B21AC2AFD543A0038FDC5 /* AppDelegate.swift in Sources */,
 				761B21AE2AFD543A0038FDC5 /* SceneDelegate.swift in Sources */,
-				EDEE0E322B1662180080F27D /* CustomRectangleView.swift in Sources */,
 				EDEE0E342B16621E0080F27D /* CollectionsViewController.swift in Sources */,
-				EDF967F02B029A7C00C1F0E4 /* SummaryViewController.swift in Sources */,
 				769D05432B223F54001BB7B0 /* Summarize.xcdatamodeld in Sources */,
+				ED5DAEB12B1FA2AA005C8733 /* Summary+CoreDataProperties.swift in Sources */,
+				ED4FE9FD2B26430500DA1C0B /* SummaryDetailViewController.swift in Sources */,
 				76DD93882B17D30900AA821F /* CollectionTableViewCell.swift in Sources */,
+				ED5DAEB02B1FA2AA005C8733 /* Summary+CoreDataClass.swift in Sources */,
 				76DD93862B1664DD00AA821F /* NoteTableViewCell.swift in Sources */,
+				ED4FE9FB2B2636C000DA1C0B /* CustomRectangleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

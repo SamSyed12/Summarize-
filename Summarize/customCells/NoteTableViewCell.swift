@@ -1,10 +1,3 @@
-//
-//  NoteTableViewCell.swift
-//  Summarize
-//
-//  Created by Sameel Syed on 11/28/23.
-//
-
 import Foundation
 import UIKit
 

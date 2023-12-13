@@ -19,6 +19,17 @@ class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITable
     var searchBar: UISearchBar!
     var transcription: String!
     
+    
+    let pastelColors: [UIColor] = [
+            UIColor(red: 1.0, green: 0.6, blue: 0.6, alpha: 1.0), // Pastel Red
+            UIColor(red: 0.6, green: 0.8, blue: 1.0, alpha: 1.0), // Pastel Blue
+            UIColor(red: 0.6, green: 1.0, blue: 0.6, alpha: 1.0), // Pastel Green
+            UIColor(red: 1.0, green: 0.7, blue: 0.4, alpha: 1.0), // Pastel Orange
+            UIColor(red: 0.8, green: 0.6, blue: 1.0, alpha: 1.0), // Pastel Purple
+            UIColor(red: 1.0, green: 1.0, blue: 0.6, alpha: 1.0), // Pastel Yellow
+            UIColor(red: 0.5, green: 0.8, blue: 0.8, alpha: 1.0)  // Pastel Teal
+        ]
+    
 //    private var allNotes = [Note]()
     
     override func viewDidLoad() {
@@ -60,14 +71,19 @@ class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITable
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! NoteTableViewCell
-            let summary = summaries[indexPath.row]
+        let summary = summaries[indexPath.row]
 
-            cell.noteLabel.text = summary.title
-            let previewText = (summary.text ?? "").prefix(100) + "..." // Show the first 100 characters
-            cell.noteDescriptionLabel.text = String(previewText)
+        cell.noteLabel.text = summary.title
+        let previewText = (summary.text ?? "").prefix(200) + "..." // Show the first 100 characters
+        cell.noteDescriptionLabel.text = String(previewText)
 
-            return cell
+        // Assign a color based on the index
+        let colorIndex = indexPath.row % pastelColors.count
+        cell.noteDisplay.backgroundColor = pastelColors[colorIndex]
+
+        return cell
     }
+
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSummary = summaries[indexPath.row]
@@ -87,6 +103,10 @@ class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITable
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request: NSFetchRequest<Summary> = Summary.fetchRequest()
 
+        // Create a sort descriptor to sort the summaries by dateCreated in descending order
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [sortDescriptor]
+
         do {
             summaries = try context.fetch(request)
             tableView.reloadData()
@@ -94,6 +114,7 @@ class AllNotesViewController: UIViewController, AVAudioRecorderDelegate, UITable
             print("Failed to fetch summaries: \(error)")
         }
     }
+
 
 
     func setUpNotesCollectionsTab(){

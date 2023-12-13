@@ -11,6 +11,18 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
     var transcriptionService = TranscriptionService()
     var tableView: UITableView!
     
+    let collectionData: [(name: String, color: UIColor)] = [
+            
+            ("Chores To Do", UIColor(red: 0.6, green: 0.8, blue: 1.0, alpha: 1.0)), // Pastel Blue
+            ("Thoughts and Ideas", UIColor(red: 0.6, green: 1.0, blue: 0.6, alpha: 1.0)), // Pastel Green
+            ("CS328 Notes", UIColor(red: 1.0, green: 0.7, blue: 0.4, alpha: 1.0)), // Pastel Orange
+            ("Podcast with James", UIColor(red: 0.8, green: 0.6, blue: 1.0, alpha: 1.0)), // Pastel Purple
+            ("Plan for 2024", UIColor(red: 1.0, green: 1.0, blue: 0.6, alpha: 1.0)), // Pastel Orange
+            ("Workout Routine", UIColor(red: 0.5, green: 0.8, blue: 0.8, alpha: 1.0)),  // Pastel Purple
+            ("History Notes", UIColor(red: 1.0, green: 0.6, blue: 0.6, alpha: 1.0)) // Pastel Red
+            
+        ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -42,14 +54,16 @@ class CollectionsViewController: UIViewController, AVAudioRecorderDelegate, UITa
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 10 // Adjust the number of rows based on your data
-        }
+        return collectionData.count
+    }
 
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionsCell", for: indexPath) as! CollectionsTableViewCell
-            // Configure the cell with your data
-            return cell
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionsCell", for: indexPath) as! CollectionsTableViewCell
+        let collection = collectionData[indexPath.row]
+        cell.collectionsLabel.text = collection.name
+        cell.collectionsDisplay.backgroundColor = collection.color
+        return cell
+    }
 
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             // Handle the selection of a row

@@ -7,7 +7,8 @@ class TranscriptionPageViewController: UIViewController {
     let ScreenLabel = UILabel()
     let backButton = UIButton(type: .system)
     let summarizeButton = UIButton(type: .system)
-    
+    let activityIndicator = UIActivityIndicatorView(style: .large)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -20,6 +21,9 @@ class TranscriptionPageViewController: UIViewController {
         backButton.tintColor = .black
         backButton.layer.cornerRadius = 8.0
         view.addSubview(backButton)
+        setupActivityIndicator()
+
+        
         
         
         // Placing Back Button
@@ -100,12 +104,28 @@ class TranscriptionPageViewController: UIViewController {
         ])
     }
     
+    private func setupActivityIndicator() {
+        activityIndicator.style = .large
+        activityIndicator.color = .black
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        view.bringSubviewToFront(activityIndicator)
+
+    }
+    
+    
     let completionService = OpenAICompletionService()
 
     // When summarize button is pressed
     @objc func summarizeButtonTapped() {
 //        showOverlay()
         print("Summarize button tapped!")
+        self.activityIndicator.startAnimating()
         
         guard let transcriptionText = transcriptionTextView.text, !transcriptionText.isEmpty else {
             print("No transcription text available")
@@ -114,6 +134,10 @@ class TranscriptionPageViewController: UIViewController {
 
         completionService.getSummary(for: transcriptionText) { [weak self] summary in
             DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                        self?.activityIndicator.startAnimating()
+                    }
+
                 if let summary = summary {
                     let summaryVC = SummaryViewController()
                     summaryVC.transcriptionText = transcriptionText // Pass the transcription text
@@ -128,6 +152,7 @@ class TranscriptionPageViewController: UIViewController {
             }
         }
     }
+
 
 
     

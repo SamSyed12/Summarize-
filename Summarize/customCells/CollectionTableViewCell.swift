@@ -1,10 +1,3 @@
-//
-//  CollectionTableViewCell.swift
-//  Summarize
-//
-//  Created by Sameel Syed on 11/29/23.
-//
-
 import Foundation
 import UIKit
 
